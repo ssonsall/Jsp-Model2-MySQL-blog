@@ -6,8 +6,8 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="icon" href="/blog/img/favicon.png" type="image/png">
-<title>Cos Blog</title>
+<link rel="icon" href="/blog/img/logo502.jpg" type="image/jpg">
+<title>502 Blog</title>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="/blog/css/bootstrap.css">
 <link rel="stylesheet" href="/blog/vendors/linericon/style.css">
@@ -63,7 +63,7 @@
 									<li class="nav-item"><img src="http://localhost:8000/blog/userprofile/${sessionScope.user.userProfile}" width="50px" height="50px" /></li>
 									<li class="nav-item" style="margin-top: 12px">Hello! ${sessionScope.user.username}!</li>
 									<c:if test="${sessionScope.user.emailCheck ne 1}">
-										<li class="nav-item" style="margin-top: 3px;"><a href="http://localhost:8000/blog/user?cmd=fromNavToEmailAuth" style="color:red;">email 인증</a></li>
+										<li class="nav-item" style="margin-top: 3px;"><a href="http://localhost:8000/blog/user?cmd=fromNavToEmailAuth" style="color:red;">email 인증하기</a></li>
 									</c:if>
 								</c:otherwise>
 							</c:choose>

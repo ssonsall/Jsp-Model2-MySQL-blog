@@ -19,7 +19,8 @@ import blog.util.SHA256;
 import blog.util.Script;
 
 /*
- * email 인증 (동일한 사람 회원가입 방지)
+ * email 인증 (동일한 사람 회원가입 방지) : email 인증은 구현되어있지만 email 중복방지 안해놔서 하나의 이메일로 여러번 계정상승가능
+ * email 인증안되면 글을 못쓰게 하는 방식으로만 구현해놨음
  * OAuth 로그인 (ex) 네이버로그인, 페이스북로그인 등...)
  */
 
