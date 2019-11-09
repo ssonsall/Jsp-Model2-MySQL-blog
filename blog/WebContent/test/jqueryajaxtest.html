@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        $(document).ready(function(){
+            console.log('화면 로딩 끝~');
+            $('#my_hide').click(function(){
+                console.log('button을 눌렀음');
+                $('p').hide();
+            });
+
+            $('#my_animate').click(function(){
+                $('div').animate({
+                    left : '300px'
+                })
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <h2>This is a heading</h2>
+
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+
+    <button id="my_hide">Click me to hide paragraphs</button>
+
+    <br/><br/>
+    <div style="background: blue; height: 100px; width: 100px; position: absolute;"></div>
+    <br/><br/><br/><br/><br/><br/>
+    <button id="my_animate">Start Animation</button>
+</body>
+
+</html>
