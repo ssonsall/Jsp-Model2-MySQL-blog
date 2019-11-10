@@ -54,7 +54,9 @@
 								</c:otherwise>
 							</c:choose>
 						</ul>
-						<img src="/blog/img/logo502.jpg" style="width: 100px; height:50px; margin : 0px auto;">
+						
+						<a href="/blog/index.jsp" style="margin : 0px auto;"><img src="/blog/img/logo502.jpg" style="width: 100px; height:50px;"></a>
+						
 						<ul class="nav navbar-nav navbar-right header_social ml-auto">
 							<c:choose>
 								<c:when test="${empty sessionScope.user}">
@@ -63,7 +65,7 @@
 									<li class="nav-item"><img src="http://localhost:8000/blog/userprofile/${sessionScope.user.userProfile}" width="50px" height="50px" /></li>
 									<li class="nav-item" style="margin-top: 12px">Hello! ${sessionScope.user.username}!</li>
 									<c:if test="${sessionScope.user.emailCheck ne 1}">
-										<li class="nav-item" style="margin-top: 3px;"><a href="http://localhost:8000/blog/user?cmd=fromNavToEmailAuth" style="color:red;">email 인증하기</a></li>
+										<li class="nav-item" style="margin-top: 3px;"><a class="blog_btn" href="http://localhost:8000/blog/user?cmd=fromNavToEmailAuth" style="color:red;">email 인증하기</a></li>
 									</c:if>
 								</c:otherwise>
 							</c:choose>
