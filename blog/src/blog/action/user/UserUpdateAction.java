@@ -45,6 +45,7 @@ public class UserUpdateAction implements Action {
 		String rawPassword = mr.getParameter("password");
 		String email = mr.getParameter("email");
 		String address = mr.getParameter("address");
+		int emailCheck = Integer.parseInt(mr.getParameter("emailCheck"));
 		String userProfile = "";
 
 		// mr.getFileNames()를 하면 Enum방식으로 리턴해줌. 즉 여러파일을 동시에 올리면 해당 파일명들을 Enum으로 리턴해준다는
@@ -91,6 +92,7 @@ public class UserUpdateAction implements Action {
 		user.setEmail(email);
 		user.setUserProfile(userProfile);
 		user.setAddress(address);
+		user.setEmailCheck(emailCheck);
 
 		UserDao dao = new UserDao();
 		int result = dao.update(user);

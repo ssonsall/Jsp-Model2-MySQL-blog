@@ -8,6 +8,7 @@
 			<div class="col-lg-12">
 				<form class="row contact_form" action="/blog/user?cmd=update" method="post" onsubmit="return validateCheck()" enctype="multipart/form-data">
 					<input type="hidden" name="id" value="${sessionScope.user.id}" />
+					<input type="hidden" name="emailCheck" value="${sessionScope.user.emailCheck}" />
 					<div class="col-md-12">
 						<div class="form-group">
 							<input type="text" class="form-control" value="${sessionScope.user.username}" name="username" maxlength="20" placeholder="Enter Your ID" readonly>

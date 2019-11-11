@@ -29,8 +29,27 @@ public class BoardWriteAction implements Action{
 		System.out.println("searchContent >>>> " + searchContent);
 		//널 처리 필요
 		BoardDao dao = new BoardDao();
-		int result = dao.save(board);
+
+//		DB에 대량 글 적기		
+//		for (int i = 1; i < 23; i++) { 
+//			board.setUserId(62);
+//			board.setTitle("테스트"+i);		
+//			board.setContent("테스트 글입니다.");		
+//			board.setSearchContent("테스트 글입니다.");
+//			dao.save(board);
+//		}
+//		
+//		for (int i = 23; i < 47; i++) {
+//			board.setUserId(63);
+//			board.setTitle("테스트"+i);		
+//			board.setContent("테스트 글입니다.");		
+//			board.setSearchContent("테스트 글입니다.");
+//			dao.save(board);
+//		}
+//		int result = 1;
 		
+		int result = dao.save(board);
+
 		if(result == 1) {
 			//글 작성 성공
 			response.sendRedirect("index.jsp");

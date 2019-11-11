@@ -10,16 +10,15 @@
 					onsubmit="return validateCheck()" enctype="multipart/form-data">
 					<div class="col-md-10">
 						<div class="form-group">
-							<input type="text" class="form-control" id="username" name="username" required="required" maxlength="20"
+							<input type="text" class="form-control" id="username" name="username" onkeyup="usernameDuplicationCheck()" required="required" maxlength="20"
 								placeholder="Enter Your ID">
 						</div>
 					</div>
 					<div class="col-md-2">
-						<div class="form-group float-right">
-							<a style="cursor: pointer;" class="blog_btn" onClick="usernameDuplicationCheck()">중복체크</a>
-						</div>
+						<span class="form-group" style="text-align: center; font-size: 20px" id="duplicationCheckResult">
+							아이디 중복여부
+						</span>
 					</div>
-					<span class="col-md-12" id="duplicationCheckResult"></span>
 					<div class="col-md-12">
 						<div class="form-group">
 							<input type="password" class="form-control" name="password" id="password"
@@ -105,11 +104,11 @@
 		}).then(function(responseCode){		
 			if(responseCode === 'possible'){
 				console.log('possible');				
-				dupResult.setAttribute('style','color:green');
+				dupResult.setAttribute('style','color:green;text-align: center; font-size: 20px');
 				dupResult.innerHTML='사용가능 아이디';				
 			}else{
 				console.log('impossible');
-				dupResult.setAttribute('style','color:red');
+				dupResult.setAttribute('style','color:red;text-align: center; font-size: 20px');
 				dupResult.innerHTML='사용불가 아이디';
 			}
 		});

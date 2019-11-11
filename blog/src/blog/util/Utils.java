@@ -118,6 +118,7 @@ public class Utils {
 		}
 	}
 	
+	//검색할때 content안에 tag들이 검색되는 것을 막기 위해
 	public static String getPureContent(String content) {
 	
 		String searchContent = "";

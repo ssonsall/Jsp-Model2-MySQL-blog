@@ -19,8 +19,8 @@
 					<form action="http://localhost:8000/blog/api/gmail" method="post">
 						<input type="hidden" name="id" value="${user.id}" /> <input type="hidden" name="email" value="${user.email}" /> <input type="hidden" name="username" value="${user.username}" />
 						<div style="text-align : center;">							
-							<button class="blog_btn" type="submit">인증</button>
-							<button class="blog_btn" type="button" onclick="moveToListPage()">나중에</button>
+							<button class="blog_btn" type="submit" style="cursor: pointer;">인증</button>
+							<button class="blog_btn" type="button" style="cursor: pointer;" onclick="moveToListPage()">나중에</button>
 						</div>
 					</form>
 					<br /><br />
