@@ -20,6 +20,7 @@ public class Board {
 	private int id;
 	private int userId;
 	private String username; //DB와 상관없음. search용
+	private String searchContent;
 	private String previewImg;
 	private String title;
 	private String content;

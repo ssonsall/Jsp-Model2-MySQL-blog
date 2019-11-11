@@ -61,14 +61,14 @@ public class BoardDao {
 	}
 	
 	public int save(Board board) {
-		final String SQL = "INSERT INTO board (userId, title, content, createDate) values (?,?,?,now())";
+		final String SQL = "INSERT INTO board (userId, title, content, searchContent, createDate) values (?,?,?,?,now())";
 		conn = DBConn.getConnection();
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, board.getUserId());
 			pstmt.setString(2, board.getTitle());
 			pstmt.setString(3, board.getContent());
-			
+			pstmt.setString(4, board.getSearchContent());
 			int result = pstmt.executeUpdate();	//변경된 튜플의 갯수를 리턴					
 			return result;
 		} catch (SQLException e) {
@@ -227,7 +227,7 @@ public class BoardDao {
 		sb.append("SELECT board.*, user.username ");
 		sb.append("FROM board JOIN user ");
 		sb.append("WHERE board.userId = user.id ");
-		sb.append("AND (board.title LIKE ? OR board.content LIKE ? OR user.username LIKE ?) ");
+		sb.append("AND (board.title LIKE ? OR board.searchContent LIKE ? OR user.username LIKE ?) ");
 		sb.append("ORDER BY board.id DESC LIMIT ?,3");
 		
 		keyword = "%"+keyword+"%";
@@ -315,7 +315,7 @@ public class BoardDao {
 		sb.append("SELECT count(board.id) As dataNum ");
 		sb.append("FROM board JOIN user ");
 		sb.append("WHERE board.userId = user.id ");
-		sb.append("AND (board.title LIKE ? OR board.content LIKE ? OR user.username LIKE ?)");
+		sb.append("AND (board.title LIKE ? OR board.searchContent LIKE ? OR user.username LIKE ?)");
 		final String SQL = sb.toString();
 		keyword = "%"+keyword+"%";
 		conn = DBConn.getConnection();

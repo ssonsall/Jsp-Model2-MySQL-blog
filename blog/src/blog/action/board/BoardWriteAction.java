@@ -12,6 +12,7 @@ import blog.dao.UserDao;
 import blog.model.Board;
 import blog.model.User;
 import blog.util.Script;
+import blog.util.Utils;
 
 public class BoardWriteAction implements Action{
 	@Override
@@ -19,12 +20,13 @@ public class BoardWriteAction implements Action{
 		User user = (User)request.getSession().getAttribute("user");
 		String title  = request.getParameter("title");
 		String content = request.getParameter("content");
-		
+		String searchContent = Utils.getPureContent(content);
 		Board board = new Board();
 		board.setUserId(user.getId());
 		board.setTitle(title);		
-		board.setContent(content);
-		
+		board.setContent(content);		
+		board.setSearchContent(searchContent);
+		System.out.println("searchContent >>>> " + searchContent);
 		//널 처리 필요
 		BoardDao dao = new BoardDao();
 		int result = dao.save(board);

@@ -44,13 +44,7 @@
 							</c:forEach>
 						</c:when>
 						<c:otherwise>
-							<article class="blog_style1">
-								<div class="blog_text">
-									<div class="blog_text_inner">
-										<h1>포스팅 된 글이 없습니다.</h1>
-									</div>
-								</div>
-							</article>
+							
 						</c:otherwise>
 					</c:choose>
 					<!-- 블로그 글 끝 -->
