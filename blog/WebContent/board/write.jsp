@@ -6,7 +6,8 @@
 부트스트랩 제이쿼리 이런거 겹치기 때문에 (nav, footer) 나브나 풋터보다 위에 둔다 -->
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.2.0.js" integrity="sha256-wPFJNIFlVY49B+CuAIrDr932XSb6Jk3J1M22M3E2ylQ=" crossorigin="anonymous" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
@@ -47,8 +48,9 @@
 							<textarea class="form-control" id="summernote" name="content"></textarea>
 						</div>
 					</div>
+					<input type="hidden" id="searchContent" name="searchContent" />
 					<div class="col-md-12 text-right">
-						<button type="submit" value="submit" class="btn submit_btn">Posting</button>
+						<button type="submit" onclick="saveSearchContent()" value="submit" class="btn submit_btn">Posting</button>
 					</div>
 				</form>
 			</div>
@@ -65,5 +67,16 @@
 		height : 300
 	});
 	$('.dropdown-toggle').dropdown();
+
+	//console.log($('#summernote').val());
+	//$('#summernote').summernote('code').text();
+	//submit
+	
+	function saveSearchContent(){
+		console.log($('#summernote').val());
+		console.log($($('#summernote').summernote('code')));
+		var plainText = $($('#summernote').val().code()).text();
+		console.log(plainText);
+	}
 </script>
 <%@ include file="/include/footer.jsp"%>

@@ -19,11 +19,15 @@ public class BoardWriteAction implements Action{
 		User user = (User)request.getSession().getAttribute("user");
 		String title  = request.getParameter("title");
 		String content = request.getParameter("content");
+		String searchContent = request.getParameter("searchContent");
+		
+		System.out.println("searchContent >> " + searchContent);
 		
 		Board board = new Board();
 		board.setUserId(user.getId());
 		board.setTitle(title);		
 		board.setContent(content);
+		board.setSearchContent(searchContent);
 		
 		//널 처리 필요
 		BoardDao dao = new BoardDao();
