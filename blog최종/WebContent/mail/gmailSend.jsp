@@ -76,6 +76,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>인증 메일이 전송되었습니다. 이메일에서 확인해주세요.</h1>
+	<h1>인증 메일이 전송되었습니다. 이메일에서 인증해주세요.</h1>
 </body>
 </html>

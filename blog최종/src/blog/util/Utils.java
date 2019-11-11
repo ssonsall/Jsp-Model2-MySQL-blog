@@ -117,27 +117,25 @@ public class Utils {
 		}
 	}
 	
-	//search 용 content 만들기 파서
-	
-//	@Test
-//	public void previewYoutubeTest() {
-//		String content = "<a href = \"https://www.youtube.com/watch?v=BzYnNdJhZQw\">https://www.youtube.com/watch?v=BzYnNdJhZQw</a><br/>";
-//		Document doc = Jsoup.parse(content);
-//		Elements ets = doc.select("a");
-//		//<iframe src="https://www.youtube.com/embed/BzYnNdJhZQw" width="600px" height="350px" allowfullscreen/>
-//		//<iframe src="https://www.youtube.com/embed/BzYnNdJhZQw" width="600px" height="350px" allowfullscreen/>
-//		if(ets != null) {
-//			for (Element et : ets) {
-//				String href = et.attr("href");
-//				if(href.contains("www.youtube.com/watch")) {
-//					String video[] = href.split("=");
-//					String v = video[1];
-//					String iframe = "<iframe src=\"https://www.youtube.com/embed/"+ v +"\" width=\"600px\" height=\"350px\" allowfullscreen/>";
-//					et.after(iframe);					
-//				}
-//			}			
-//		}
-//	}
+	@Test
+	public void previewYoutubeTest() {
+		String content = "<a href = \"https://www.youtube.com/watch?v=BzYnNdJhZQw\">https://www.youtube.com/watch?v=BzYnNdJhZQw</a><br/>";
+		Document doc = Jsoup.parse(content);
+		Elements ets = doc.select("a");
+		//<iframe src="https://www.youtube.com/embed/BzYnNdJhZQw" width="600px" height="350px" allowfullscreen/>
+		//<iframe src="https://www.youtube.com/embed/BzYnNdJhZQw" width="600px" height="350px" allowfullscreen/>
+		if(ets != null) {
+			for (Element et : ets) {
+				String href = et.attr("href");
+				if(href.contains("www.youtube.com/watch")) {
+					String video[] = href.split("=");
+					String v = video[1];
+					String iframe = "<iframe src=\"https://www.youtube.com/embed/"+ v +"\" width=\"600px\" height=\"350px\" allowfullscreen/>";
+					et.after(iframe);					
+				}
+			}			
+		}
+	}
 	
 	
 	

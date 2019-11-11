@@ -23,7 +23,6 @@ public class Board {
 	private String previewImg;
 	private String title;
 	private String content;
-	private String searchContent;
 	private int readCount;
 	private Timestamp createDate;
 }

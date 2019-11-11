@@ -61,14 +61,14 @@ public class BoardDao {
 	}
 	
 	public int save(Board board) {
-		final String SQL = "INSERT INTO board (userId, title, content, searchContent, createDate) values (?,?,?,?,now())";
+		final String SQL = "INSERT INTO board (userId, title, content, createDate) values (?,?,?,now())";
 		conn = DBConn.getConnection();
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, board.getUserId());
 			pstmt.setString(2, board.getTitle());
 			pstmt.setString(3, board.getContent());
-			pstmt.setString(4, board.getSearchContent());
+			
 			int result = pstmt.executeUpdate();	//변경된 튜플의 갯수를 리턴					
 			return result;
 		} catch (SQLException e) {
