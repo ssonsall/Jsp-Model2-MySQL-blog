@@ -6,20 +6,22 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<form class="row contact_form" action="/blog/user?cmd=join" method="post" onsubmit="return validateCheck()" enctype="multipart/form-data">
-										<div class="col-md-3">
+				<form class="row contact_form" action="/blog/user?cmd=update" method="post" onsubmit="return validateCheck()" enctype="multipart/form-data">
+					<input type="hidden" name="id" value="${sessionScope.user.id}" />
+					<input type="hidden" name="emailCheck" value="${sessionScope.user.emailCheck}" />
+					<div class="col-md-3">
 						<div class="form-group" style="margin-bottom: 0px">
 							
 						</div>
 					</div>
 					<div class="col-md-1">
-						<div class="form-group" style="margin-bottom: 0px;">
+						<div class="form-group" style="margin-bottom: 0px; margin-top: 5px;">
 							<b>아이디</b>
 						</div>
 					</div>
 					<div class="col-md-5">
 						<div class="form-group" style="margin-bottom: 0px">
-							<input type="text" class="form-control" id="username" value="${sessionScope.user.username}" name="username" onkeyup="usernameDuplicationCheck()" required="required" maxlength="20" placeholder="Enter Your ID">
+							<input type="text" class="form-control" id="username" value="${sessionScope.user.username}" name="username" onkeyup="usernameDuplicationCheck()" required="required" maxlength="20" placeholder="Enter Your ID" readonly>
 						</div>
 					</div>
 					<div class="col-md-3">
@@ -33,7 +35,7 @@
 					<div class="col-md-3">	
 					</div>
 					<div class="col-md-4">
-						<span class="form-group" style="text-align: center; font-size: 12px !important" id="duplicationCheckResult"> 아이디중복확인 </span>
+						<div class="form-group" style="text-align: center; font-size: 12px !important" id="duplicationCheckResult">  </div>
 					</div>
 					<div class="col-md-4">
 					</div>
@@ -44,7 +46,7 @@
 						</div>
 					</div>
 						<div class="col-md-1">
-						<div class="form-group">
+						<div class="form-group" style="margin-top: 5px;">
 							<b>비밀번호</b>
 						</div>
 					</div>
@@ -64,7 +66,7 @@
 						</div>
 					</div>
 					<div class="col-md-1">
-						<div class="form-group">
+						<div class="form-group" style="margin-top: 5px;">
 							<b>확인</b>
 						</div>
 					</div>
@@ -95,13 +97,13 @@
 						</div>
 					</div>
 					<div class="col-md-1">
-						<div class="form-group" style="margin-bottom: 0px">
+						<div class="form-group" style="margin-bottom: 0px; margin-top: 5px;">
 							<b>이메일</b>
 						</div>
 					</div>
 					<div class="col-md-5">
 						<div class="form-group" style="margin-bottom: 0px">
-							<input type="email" class="form-control" value="${sessionScope.user.email}" name="email" required="required" maxlength="40" placeholder="Enter Your Email">
+							<input type="email" class="form-control" value="${sessionScope.user.email}" name="email" required="required" maxlength="40" placeholder="Enter Your Email" readonly>
 						</div>
 					</div>
 										<div class="col-md-3">
@@ -114,7 +116,7 @@
 					</div>
 					
 					<div class="col-md-8">
-						<span class="form-group" style="text-align: center; font-size: 12px !important" id=""> 이메일중복확인 </span>
+						<div class="form-group" style="text-align: center; font-size: 12px !important" id="">  </div>
 					</div>
 					<!-- 유저프로필 시작 -->
 					<div class="col-md-3">
@@ -122,11 +124,11 @@
 
 						</div>
 					</div>
-					<div class="col-md-1">
+					<div class="col-md-1" style="margin-top: 5px;">
 						 <b>사진</b>
 					</div>
 					<div class="col-md-5">
-						 <img id="profilePreview" src="/blog/userprofile/defaultprofile.jpg" width="75px" height="75px" class="form-group"
+						 <img id="profilePreview" src="/blog/userprofile/${sessionScope.user.userProfile}" width="75px" height="75px" class="form-group"
 							style="text-align: center;" />
 					</div>
 					<div class="col-md-3">
@@ -149,7 +151,8 @@
 					</div>
 					<div class="col-md-5">
 
-							<input id="inputImage" type="file" name="userProfile" accept=".jpg, .jpeg, .png" maxlength="40">
+							<input id="inputImage" type="file" name="userProfile" accept=".jpg, .jpeg, .png" maxlength="40"/>
+
 
 					</div>
 					<div class="col-md-3">
@@ -162,9 +165,13 @@
 					<div class="col-md-4">						
 					</div>
 					<div class="col-md-8">
+						<span id="profileImageCheck" class="form-group" style="text-align: center; font-size: 12px !important; color:green;" id="">변경없음</span>						 
+					</div>
+					<div class="col-md-4">						
+					</div>
+					<div class="col-md-8">
 						<span id="profileImageCheck" class="form-group" style="text-align: center; font-size: 12px !important" id=""> .jpg, .jpeg, .png 파일을 등록하세요 </span>						 
 					</div>
-
 
 					<!-- 유저프로필 끝 -->
 					<!-- 도로명 주소 시작 -->
@@ -174,7 +181,7 @@
 						</div>
 					</div>
 					<div class="col-md-1">
-						<div class="form-group">
+						<div class="form-group" style="margin-top: 5px;">
 							<b>주소</b>
 						</div>
 					</div>
@@ -200,7 +207,7 @@
 						</div>
 					</div>
 					<div class="col-md-6 text-right">
-						<button type="submit" value="submit" class="btn submit_btn">Join</button>
+						<button type="submit" value="submit" class="btn submit_btn">Update</button>
 					</div>
 				    <div class="col-md-3">
 						<div class="form-group">
@@ -221,14 +228,23 @@
 <script>
 	var imgFileChk = false;
 	var idDupChk = false;
-
+	var f;
 	$('#inputImage').on("change",handleImgFile); //(어떤 변화가있을때, 그때 뭐할래)
 	function handleImgFile(e){
-		var f = e.target.files[0];
-	
+		f = e.target.files[0];
+		
+		if(f === undefined){
+			document.querySelector("#profileImageCheck").innerHTML = "변경없음";
+			document.querySelector("#profileImageCheck").setAttribute('style','color:green;text-align: center; font-size: 12px');
+			$('#profilePreview').attr("src", "");
+			$('#profilePreview').attr("src", "/blog/userprofile/${sessionScope.user.userProfile}");
+		}
+		
 		if(!f.type.match("image.*")){
 	         document.querySelector("#profileImageCheck").innerHTML = "File 이름 > "+ f.name + " Image 파일이 아닙니다.";
-	         document.querySelector("#profileImageCheck").setAttribute('style','color:red;text-align: center; font-size: 12px');	
+	         document.querySelector("#profileImageCheck").setAttribute('style','color:red;text-align: center; font-size: 12px');
+			 $('#profilePreview').attr("src", "");
+			 $('#profilePreview').attr("src", "/blog/userprofile/noImg.png");
 	         imgFileChk = false;
 		return;
 		}
@@ -249,6 +265,11 @@
 		var password = document.querySelector('#password').value;
 		var passwordCheck = document.querySelector('#passwordCheck').value;
 
+		
+		if(f === undefined){
+			imgFileChk = true;
+		}
+		
 		if (password === passwordCheck) {
 			console.log('비밀번호가 동일합니다');
 			if (roadFullAddr == "") {
@@ -259,7 +280,7 @@
 					if(idDupChk){
 						return true;
 					}else{
-						alert('아이디가 중복됩니다.');
+						return true;
 					}	
 				}else{
 					alert('이미지 파일을 올려주세요.');

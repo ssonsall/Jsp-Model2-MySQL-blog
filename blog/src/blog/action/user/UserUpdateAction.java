@@ -80,7 +80,7 @@ public class UserUpdateAction implements Action {
 			userProfile = fileNew.getName();
 			file.delete();
 		} else {
-			userProfile = "defaultprofile.jpg";
+			userProfile = username + ".jpg";
 		}
 
 		String password = SHA256.getEncrypt(rawPassword, "cos");

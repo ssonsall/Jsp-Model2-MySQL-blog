@@ -25,12 +25,12 @@
 									<div class="blog_text">
 										<div class="blog_text_inner">
 											<div class="cat">
-												<div class="cat_btn" href="#">${listView.username}</div>
+												<div class="cat_btn" href="#"><i class="fa fa-at" aria-hidden="true"></i> ${listView.username}</div>
 												<div class="cat_btn">
 													<i class="fa fa-calendar" aria-hidden="true"></i> ${listView.createDate}
 												</div>
 												<div class="cat_btn">
-													<i class="fa fa-comments-o" aria-hidden="true"></i> ${listView.readCount}
+													<i class="fa fa-eye" aria-hidden="true"></i> ${listView.readCount}
 												</div>
 											</div>
 											<h4>${listView.title}</h4>

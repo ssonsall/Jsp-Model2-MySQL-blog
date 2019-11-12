@@ -13,7 +13,7 @@
 						</div>
 					</div>
 					<div class="col-md-1">
-						<div class="form-group" style="margin-bottom: 0px;">
+						<div class="form-group" style="margin-bottom: 0px; margin-top: 5px;">
 							<b>아이디</b>
 						</div>
 					</div>
@@ -44,7 +44,7 @@
 						</div>
 					</div>
 						<div class="col-md-1">
-						<div class="form-group">
+						<div class="form-group" style="margin-top: 5px;">
 							<b>비밀번호</b>
 						</div>
 					</div>
@@ -64,7 +64,7 @@
 						</div>
 					</div>
 					<div class="col-md-1">
-						<div class="form-group">
+						<div class="form-group" style="margin-top: 5px;">
 							<b>확인</b>
 						</div>
 					</div>
@@ -95,12 +95,12 @@
 						</div>
 					</div>
 					<div class="col-md-1">
-						<div class="form-group" style="margin-bottom: 0px">
+						<div class="form-group" style="margin-bottom: 0px; margin-top: 5px;">
 							<b>이메일</b>
 						</div>
 					</div>
 					<div class="col-md-5">
-						<div class="form-group" style="margin-bottom: 0px">
+						<div class="form-group" style="margin-bottom: 5px">
 							<input type="email" class="form-control" name="email" required="required" maxlength="40" placeholder="Enter Your Email">
 						</div>
 					</div>
@@ -109,20 +109,20 @@
 
 						</div>
 					</div>
-					<div class="col-md-4">
+<!-- 					<div class="col-md-4">
 						
 					</div>
 					
 					<div class="col-md-8">
 						<span class="form-group" style="text-align: center; font-size: 12px !important" id=""> 이메일중복확인 </span>
-					</div>
+					</div> -->
 					<!-- 유저프로필 시작 -->
 					<div class="col-md-3">
 						<div class="form-group">
 
 						</div>
 					</div>
-					<div class="col-md-1">
+					<div class="col-md-1" style="margin-top: 5px;">
 						 <b>사진</b>
 					</div>
 					<div class="col-md-5">
@@ -162,7 +162,13 @@
 					<div class="col-md-4">						
 					</div>
 					<div class="col-md-8">
-						<span id="profileImageCheck" class="form-group" style="text-align: center; font-size: 12px !important" id=""> .jpg, .jpeg, .png 파일을 등록하세요 </span>						 
+						<span id="profileImageCheck" class="form-group" style="text-align: center; font-size: 12px !important; color:green;" >Default Image 사용</span>						 
+					</div>
+					
+					<div class="col-md-4">						
+					</div>
+					<div class="col-md-8">
+						<span  class="form-group" style="text-align: center; font-size: 12px !important" id=""> .jpg, .jpeg, .png 파일을 등록하세요 </span>						 
 					</div>
 
 
@@ -174,7 +180,7 @@
 						</div>
 					</div>
 					<div class="col-md-1">
-						<div class="form-group">
+						<div class="form-group" style="margin-top: 5px;">
 							<b>주소</b>
 						</div>
 					</div>
@@ -221,19 +227,30 @@
 <script>
 	var imgFileChk = false;
 	var idDupChk = false;
-
+	var f;
 	$('#inputImage').on("change",handleImgFile); //(어떤 변화가있을때, 그때 뭐할래)
 	function handleImgFile(e){
-		var f = e.target.files[0];
+		f = e.target.files[0];
 		//var profileImageCheck = document.querySelector('#profileImageCheck').value;
 	
+		if(f === undefined){
+			document.querySelector("#profileImageCheck").innerHTML = "Default Image 사용";
+			document.querySelector("#profileImageCheck").setAttribute('style','color:green;text-align: center; font-size: 12px');
+			$('#profilePreview').attr("src", "");
+			$('#profilePreview').attr("src", "/blog/userprofile/defaultprofile.jpg");
+		}
+		
 		if(!f.type.match("image.*")){
 	         document.querySelector("#profileImageCheck").innerHTML = "File 이름 > "+ f.name + " Image 파일이 아닙니다.";
 	         document.querySelector("#profileImageCheck").setAttribute('style','color:red;text-align: center; font-size: 12px');	
+			 $('#profilePreview').attr("src", "");
+			 $('#profilePreview').attr("src", "/blog/userprofile/noImg.png");
 	         imgFileChk = false;
 			 return;
 		}
 	
+
+		
         document.querySelector("#profileImageCheck").innerHTML = "File 이름 > "+f.name;
         document.querySelector("#profileImageCheck").setAttribute('style','color:green;text-align: center; font-size: 12px');
 		
@@ -242,14 +259,23 @@
 			$('#profilePreview').attr("src", "");
 			$('#profilePreview').attr("src", e.target.result);
 		}
+		
+		
+		
 		imgFileChk = true;
 		reader.readAsDataURL(f);
+		
+
 	}
 
 	function validateCheck() {
 		var password = document.querySelector('#password').value;
 		var passwordCheck = document.querySelector('#passwordCheck').value;
 
+		if(f === undefined){
+			imgFileChk = true;
+		}
+		
 		if (password === passwordCheck) {
 			console.log('비밀번호가 동일합니다');
 			if (roadFullAddr == "") {
@@ -261,6 +287,7 @@
 						return true;
 					}else{
 						alert('아이디가 중복됩니다.');
+						return false;
 					}	
 				}else{
 					alert('이미지 파일을 올려주세요.');

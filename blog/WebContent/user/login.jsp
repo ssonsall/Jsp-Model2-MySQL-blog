@@ -11,7 +11,16 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<form class="row contact_form" action="/blog/user?cmd=login" method="post">
-					<div class="col-md-12">
+					<div class="col-md-3">
+						<div class="form-group">
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="form-group" style="margin-bottom: 0px; margin-top: 5px;">
+						<b>아이디</b>
+						</div>
+					</div>
+					<div class="col-md-5">
 						<div class="form-group">
 							<c:choose>
 								<c:when test="${empty cookie.username.value}">
@@ -23,17 +32,44 @@
 							</c:choose>
 						</div>
 					</div>
-					<div class="col-md-12">
+					<div class="col-md-3">
+						<div class="form-group">
+						</div>
+					</div>
+					
+					<div class="col-md-3">
+						<div class="form-group">
+						</div>
+					</div>
+					<div class="col-md-1">
+					<div class="form-group" style="margin-bottom: 0px; margin-top: 5px;">
+						<b>비밀번호</b>
+						</div>
+					</div>
+					<div class="col-md-5">
 						<div class="form-group">
 							<input type="password" class="form-control" id="password" name="password" required="required" placeholder="Enter Your Password">
 						</div>
 					</div>
-					<div class="col-md-12 text-right">
+					<div class="col-md-3">
+						<div class="form-group">						
+						</div>
+					</div>
+					
+					<div class="col-md-9 text-right">
 						<label><input type="checkbox" name="rememberMe" /> Remember me</label>
 					</div>
-
-					<div class="col-md-12 text-right">
+					<div class="col-md-3">
+						<div class="form-group">			
+						</div>
+					</div>
+	
+					<div class="col-md-9 text-right">
 						<button type="submit" value="submit" class="btn submit_btn">Login</button>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">						
+						</div>
 					</div>
 				</form>
 			</div>
