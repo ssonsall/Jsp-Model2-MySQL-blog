@@ -6,50 +6,206 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<form class="row contact_form" action="/blog/user?cmd=update" method="post" onsubmit="return validateCheck()" enctype="multipart/form-data">
-					<input type="hidden" name="id" value="${sessionScope.user.id}" />
-					<input type="hidden" name="emailCheck" value="${sessionScope.user.emailCheck}" />
-					<div class="col-md-12">
-						<div class="form-group">
-							<input type="text" class="form-control" value="${sessionScope.user.username}" name="username" maxlength="20" placeholder="Enter Your ID" readonly>
+				<form class="row contact_form" action="/blog/user?cmd=join" method="post" onsubmit="return validateCheck()" enctype="multipart/form-data">
+										<div class="col-md-3">
+						<div class="form-group" style="margin-bottom: 0px">
+							
 						</div>
 					</div>
-					<div class="col-md-12">
-						<div class="form-group">
-							<input type="password" class="form-control" name="password" id="password" required="required" maxlength="20" placeholder="Enter Your Password">
+					<div class="col-md-1">
+						<div class="form-group" style="margin-bottom: 0px;">
+							<b>아이디</b>
 						</div>
 					</div>
-					<div class="col-md-12">
-						<div class="form-group">
-							<input type="password" class="form-control" name="passwordCheck" id="passwordCheck" required="required" maxlength="20" placeholder="Confirm Your Password">
+					<div class="col-md-5">
+						<div class="form-group" style="margin-bottom: 0px">
+							<input type="text" class="form-control" id="username" value="${sessionScope.user.username}" name="username" onkeyup="usernameDuplicationCheck()" required="required" maxlength="20" placeholder="Enter Your ID">
 						</div>
 					</div>
-					<div class="col-md-12">
-						<div class="form-group">
-							<input type="email" class="form-control" value="${sessionScope.user.email}" name="email" maxlength="40" placeholder="Enter Your Email" readonly>
+					<div class="col-md-3">
+						<div class="form-group" style="margin-bottom: 0px">
+							
 						</div>
 					</div>
-					<!-- 유저프로필 업데이트 -->
-					<div class="col-md-12">
+						<div class="col-md-1">
+						
+					</div>
+					<div class="col-md-3">	
+					</div>
+					<div class="col-md-4">
+						<span class="form-group" style="text-align: center; font-size: 12px !important" id="duplicationCheckResult"> 아이디중복확인 </span>
+					</div>
+					<div class="col-md-4">
+					</div>
+					
+					<div class="col-md-3">
 						<div class="form-group">
-							<input type="file" class="form-control" name="userProfile" accept=".jpg, .jpeg, .png" maxlength="40">
+
 						</div>
 					</div>
-					<!-- 유저프로필업데이트 끝 -->
+						<div class="col-md-1">
+						<div class="form-group">
+							<b>비밀번호</b>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="form-group">
+							<input type="password" onkeyup="passwordcheck()" class="form-control" name="password" id="password" required="required" maxlength="20" placeholder="Enter Your Password">
+						</div>
+					</div>
+										<div class="col-md-3">
+						<div class="form-group">
+
+						</div>
+					</div>
+										<div class="col-md-3">
+						<div class="form-group">
+
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="form-group">
+							<b>확인</b>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="form-group" style="margin-bottom: 0px">
+							<input type="password" onkeyup="passwordcheck()" class="form-control" name="passwordCheck" id="passwordCheck" required="required" maxlength="20" placeholder="Confirm Your Password">
+						</div>
+					</div>
+										<div class="col-md-3">
+						<div class="form-group">
+
+						</div>
+					</div>
+					<div class="col-md-1">
+						<span class="form-group" style="text-align: center; font-size: 12px !important" id=""></span>
+					</div>
+										<div class="col-md-3">
+						<div class="form-group">
+
+						</div>
+					</div>
+					<div class="col-md-8">
+						<span class="form-group" style="text-align: center; font-size: 12px !important" id="passwordCheckString"> 비밀번호일치확인 </span>
+					</div>
+										<div class="col-md-3">
+						<div class="form-group">
+
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="form-group" style="margin-bottom: 0px">
+							<b>이메일</b>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="form-group" style="margin-bottom: 0px">
+							<input type="email" class="form-control" value="${sessionScope.user.email}" name="email" required="required" maxlength="40" placeholder="Enter Your Email">
+						</div>
+					</div>
+										<div class="col-md-3">
+						<div class="form-group">
+
+						</div>
+					</div>
+					<div class="col-md-4">
+						
+					</div>
+					
+					<div class="col-md-8">
+						<span class="form-group" style="text-align: center; font-size: 12px !important" id=""> 이메일중복확인 </span>
+					</div>
+					<!-- 유저프로필 시작 -->
+					<div class="col-md-3">
+						<div class="form-group">
+
+						</div>
+					</div>
+					<div class="col-md-1">
+						 <b>사진</b>
+					</div>
+					<div class="col-md-5">
+						 <img id="profilePreview" src="/blog/userprofile/defaultprofile.jpg" width="75px" height="75px" class="form-group"
+							style="text-align: center;" />
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+
+						</div>
+					</div>
+					
+					
+					<div class="col-md-3">
+						<div class="form-group">
+
+						</div>
+					</div>
+					
+					<div class="col-md-1">
+						<div class="form-group" style="margin-bottom: 0px">
+						
+						</div>
+					</div>
+					<div class="col-md-5">
+
+							<input id="inputImage" type="file" name="userProfile" accept=".jpg, .jpeg, .png" maxlength="40">
+
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+
+						</div>
+					</div>
+					
+					
+					<div class="col-md-4">						
+					</div>
+					<div class="col-md-8">
+						<span id="profileImageCheck" class="form-group" style="text-align: center; font-size: 12px !important" id=""> .jpg, .jpeg, .png 파일을 등록하세요 </span>						 
+					</div>
+
+
+					<!-- 유저프로필 끝 -->
 					<!-- 도로명 주소 시작 -->
-					<div class="col-md-10">
+					<div class="col-md-3">
 						<div class="form-group">
-							<input type="text" class="form-control" value="${sessionScope.user.address}" id="roadFullAddr" name="address" required="required" placeholder="Search Your Address" readonly>
+
 						</div>
 					</div>
-					<div class="col-md-2">
+					<div class="col-md-1">
+						<div class="form-group">
+							<b>주소</b>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="form-group">
+							<input type="text" style="cursor: pointer;" onClick="goPopup()" value="${sessionScope.user.address}" class="form-control" id="roadFullAddr" name="address" required="required" placeholder="Search Your Address" readonly>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+
+						</div>
+					</div>
+<!-- 					<div class="col-md-2">
 						<div class="form-group float-right">
-							<a style="cursor: pointer;" class="blog_btn" onClick="goPopup()">Search Address</a>
+							<a style="cursor: pointer;" class="blog_btn" onClick="goPopup()">주소찾기</a>
+						</div>
+					</div> -->
+					<!-- 도로명 주소 끝 -->
+					<div class="col-md-3">
+						<div class="form-group">
+
 						</div>
 					</div>
-					<!-- 도로명 주소 끝 -->
-					<div class="col-md-12 text-right">
-						<button type="submit" value="submit" class="btn submit_btn">Update</button>
+					<div class="col-md-6 text-right">
+						<button type="submit" value="submit" class="btn submit_btn">Join</button>
+					</div>
+				    <div class="col-md-3">
+						<div class="form-group">
+
+						</div>
 					</div>
 				</form>
 			</div>
@@ -60,24 +216,99 @@
 <br />
 <!--================Contact Area =================-->
 
+<%@ include file="/include/footer.jsp"%>
+
 <script>
+	var imgFileChk = false;
+	var idDupChk = false;
+
+	$('#inputImage').on("change",handleImgFile); //(어떤 변화가있을때, 그때 뭐할래)
+	function handleImgFile(e){
+		var f = e.target.files[0];
+	
+		if(!f.type.match("image.*")){
+	         document.querySelector("#profileImageCheck").innerHTML = "File 이름 > "+ f.name + " Image 파일이 아닙니다.";
+	         document.querySelector("#profileImageCheck").setAttribute('style','color:red;text-align: center; font-size: 12px');	
+	         imgFileChk = false;
+		return;
+		}
+	
+        document.querySelector("#profileImageCheck").innerHTML = "File 이름 > "+f.name;
+        document.querySelector("#profileImageCheck").setAttribute('style','color:green;text-align: center; font-size: 12px');
+		
+		var reader = new FileReader();
+		reader.onload = function(e){
+			$('#profilePreview').attr("src", "");
+			$('#profilePreview').attr("src", e.target.result);
+		}
+		imgFileChk = true;
+		reader.readAsDataURL(f);
+	}
+
 	function validateCheck() {
 		var password = document.querySelector('#password').value;
 		var passwordCheck = document.querySelector('#passwordCheck').value;
 
 		if (password === passwordCheck) {
 			console.log('비밀번호가 동일합니다');
-			return true;
+			if (roadFullAddr == "") {
+				alert('주소를 입력하세요');
+				return false;
+			}else{
+				if(imgFileChk){
+					if(idDupChk){
+						return true;
+					}else{
+						alert('아이디가 중복됩니다.');
+					}	
+				}else{
+					alert('이미지 파일을 올려주세요.');
+					return false;
+				}
+			}
 		} else {
 			console.log('비밀번호가 틀렸습니다');
 			alert('비밀번호 불일치');
 			return false;
 		}
 
-		if (roadFullAddr == "") {
-			alert('주소를 입력하세요');
-			return false;
-		}
+
+	}
+
+	function usernameDuplicationCheck() {
+		var url = "http://localhost:8000/blog/api/user";
+		var username = document.querySelector('#username').value;
+		var dupResult = document.querySelector('#duplicationCheckResult');
+		fetch(
+				url,
+				{
+					method : "POST",
+					headers : {
+						"Content-Type" : "application/x-www-form-urlencoded; charset=utf-8"
+					},
+					body : "username=" + username
+				})
+				.then(function(response) {
+					return response.text();
+				})
+				.then(
+						function(responseCode) {
+							if (responseCode === 'possible') {
+								console.log('possible');
+								idDupChk = true;
+								dupResult
+										.setAttribute('style',
+												'color:green;text-align: center; font-size: 12px');
+								dupResult.innerHTML = '사용가능 아이디';
+							} else {
+								console.log('impossible');
+								idDupChk = false;
+								dupResult
+										.setAttribute('style',
+												'color:red;text-align: center; font-size: 12px');
+								dupResult.innerHTML = '사용불가 아이디';
+							}
+						});
 	}
 
 	function goPopup() {
@@ -93,6 +324,19 @@
 		var juso = document.querySelector('#roadFullAddr');
 		juso.value = roadFullAddr;
 	}
+	
+	   function passwordcheck(){
+		      var password = document.querySelector('#password').value;
+		      var passwordCheck = document.querySelector('#passwordCheck').value;
+		      if (password === passwordCheck) {
+		         document.querySelector("#passwordCheckString").innerHTML = "비밀번호 일치";
+		         document.querySelector("#passwordCheckString").setAttribute('style','color:green;text-align: center; font-size: 12px');
+		         return true;
+		      } else {
+		         console.log('비밀번호가 불일치');
+		         document.querySelector("#passwordCheckString").innerHTML = "비밀번호 불일치";
+		         document.querySelector("#passwordCheckString").setAttribute('style','color:red;text-align: center; font-size: 12px');
+		         return false;
+		      }
+		   }
 </script>
-
-<%@ include file="/include/footer.jsp"%>

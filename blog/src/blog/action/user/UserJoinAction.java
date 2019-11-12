@@ -27,9 +27,6 @@ import blog.util.Script;
 public class UserJoinAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		
-		
 		
 		// 목적 : form tag에 있는 name값을 받아서 DB에 insert하고 login page로 이동 (index타고 list page로
 		// 이동)

@@ -8,7 +8,6 @@
 </head>
 <body>
 	<!-- 서블릿 타고 가야함. 리스트 목록 가져와야지 -->
-	
 	<script>
 	function moveToList(authStatus){
 		${sessionScope.user.id}
