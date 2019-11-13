@@ -30,9 +30,9 @@ public class BoardWriteAction implements Action{
 		//널 처리 필요
 		BoardDao dao = new BoardDao();
 
-//		DB에 대량 글 적기		
+		//DB에 대량 글 적기		
 //		for (int i = 1; i < 23; i++) { 
-//			board.setUserId(62);
+//			board.setUserId(45);
 //			board.setTitle("테스트"+i);		
 //			board.setContent("테스트 글입니다.");		
 //			board.setSearchContent("테스트 글입니다.");
@@ -40,7 +40,7 @@ public class BoardWriteAction implements Action{
 //		}
 //		
 //		for (int i = 23; i < 47; i++) {
-//			board.setUserId(63);
+//			board.setUserId(45);
 //			board.setTitle("테스트"+i);		
 //			board.setContent("테스트 글입니다.");		
 //			board.setSearchContent("테스트 글입니다.");

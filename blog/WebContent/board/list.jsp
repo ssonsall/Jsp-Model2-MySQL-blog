@@ -32,7 +32,7 @@
 													<i class="fa fa-eye" aria-hidden="true"></i> ${listView.readCount}
 												</div>
 											</div>
-											<h4>${listView.title}</h4>
+											<h4 style="word-break: break-all;">${listView.title}</h4>
 											<!-- content 미리보기 세팅 -->
 											<div
 												style="display: -webkit-box; -webkit-box-orient: vertical; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: normal; line-height: 1.2; height: 2.4em; -webkit-line-clamp: 2; margin-bottom: 20px; word-break: break-all">${listView.content}</div>
@@ -105,10 +105,11 @@
 					</nav>
 				</div>
 			</div>
+			
+			<!-- 검색 -->
 			<div class="col-lg-4">
 				<div class="blog_right_sidebar">
 					<aside class="single_sidebar_widget search_widget">
-
 						<div class="input-group">
 							<input type="text" id="searchKeyword" class="form-control" placeholder="Search Posts"> <span class="input-group-btn">
 								<button class="btn btn-default" type="button" onclick="searchByAll()">
@@ -127,7 +128,7 @@
 							<div class="media post_item">
 								<img src="${hotBoard.previewImg}" alt="post" width="100px" height="80px">
 								<div class="media-body">
-									<a href="/blog/board?cmd=detail&id=${hotBoard.id}"><h3>${hotBoard.title}</h3></a>
+									<a href="/blog/board?cmd=detail&id=${hotBoard.id}"><h3 style="word-break: break-all;">${hotBoard.title}</h3></a>
 									<p>${hotBoard.createDate}</p>
 								</div>
 							</div>

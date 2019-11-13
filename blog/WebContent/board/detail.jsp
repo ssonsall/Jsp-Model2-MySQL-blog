@@ -17,7 +17,7 @@
 			<div class="col-lg-8">
 				<div class="main_blog_details" id="main_blog_details">
 					<a href="#">
-						<h4>${view.title}</h4>
+						<h4 style="word-break: break-all;">${view.title}</h4>
 					</a>
 					<div class="user_details">
 						<div class="float-left">
@@ -39,7 +39,9 @@
 						</div>
 					</div>
 					<!-- 본문시작 -->
+					<div style="word-break: break-all;">
 					<p>${view.content}</p>
+					</div>
 					<!-- 본문끝 -->
 					<hr />
 				</div>
