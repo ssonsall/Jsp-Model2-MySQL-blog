@@ -16,7 +16,7 @@
 					<span style="font-size: 40px; font-style: bold; color: red;">${user.email}</span>
 					입니다.<br /><br /> 인증은 나중에 해도 되며, 인증을 하지 않아도 로그인이 가능합니다.<br /><br />
 					다만, 글작성, 댓글달기, 답글달기는 email 인증을 한 이후에 가능합니다.<br /><br />
-					<form action="http://localhost:8000/blog/api/gmail" method="post">
+					<form action="/blog/api/gmail" method="post">
 						<input type="hidden" name="id" value="${user.id}" /> <input type="hidden" name="email" value="${user.email}" /> <input type="hidden" name="username" value="${user.username}" />
 						<div style="text-align : center;">							
 							<button class="blog_btn" type="submit" style="cursor: pointer;">인증</button>

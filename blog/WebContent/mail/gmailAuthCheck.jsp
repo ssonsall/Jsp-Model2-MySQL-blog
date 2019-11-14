@@ -15,12 +15,12 @@
 		//DB에 칼럼 emailCheck(Number)    ->      1 = 인증, 0 = 미인증     인증되면 1을 update
 		script.println("<script>");
 		//DB 업데이트 필요
-		script.println("location.href='http://localhost:8000/blog/user?cmd=authUpdate&id=" + id + "'"); 
+		script.println("location.href='/blog/user?cmd=authUpdate&id=" + id + "'"); 
 		script.println("</script>");
 	} else {
 		script.println("<script>");
 		script.println("alert('이메일 인증을 실패하였습니다.')");
-		script.println("location.href='http://localhost:8000/blog/index.jsp'"); //list 페이지로 보내자
+		script.println("location.href='/blog/index.jsp'"); //list 페이지로 보내자
 		script.println("</script>");
 	}
 

@@ -25,7 +25,7 @@ public class UserAuthUpdateAction implements Action {
 			// email인증 최종완료
 			// 조인 직후 이메일 인증처리를 한 경우(세션이 없다) 세션이 없으면 null이다.
 			if (null == session.getAttribute("user")) {
-				response.sendRedirect("http://localhost:8000/blog/user/login.jsp?authStatus=1"); // 로그인해야하니깐 로그인으로 보낸다.
+				response.sendRedirect("/blog/user/login.jsp?authStatus=1"); // 로그인해야하니깐 로그인으로 보낸다.
 			} else {
 				// 로그인 상태에서 이메일 인증처리를 한 경우(세션이 있다) -> 리스트로 보낸다.
 				User user = new User();
@@ -33,15 +33,15 @@ public class UserAuthUpdateAction implements Action {
 //				session.invalidate();
 //				session = request.getSession();
 				session.setAttribute("user", user);
-				response.sendRedirect("http://localhost:8000/blog/index.jsp?authStatus=1");
+				response.sendRedirect("/blog/index.jsp?authStatus=1");
 			}
 		} else {
 			// 조인 직후 이메일 인증처리를 한 경우(세션이 없다) 세션이 없으면 null이다.
 			if (null == session.getAttribute("user")) { // id는 Integer가 아니라 int형이라 null check가 안된다.
-				response.sendRedirect("http://localhost:8000/blog/user/login?authStatus=0.jsp"); // 로그인해야하니깐 로그인으로 보낸다.
+				response.sendRedirect("/blog/user/login?authStatus=0.jsp"); // 로그인해야하니깐 로그인으로 보낸다.
 			} else {
 				// 로그인 상태에서 이메일 인증처리를 한 경우(세션이 있다) -> 리스트로 보낸다.
-				response.sendRedirect("http://localhost:8000/blog/index.jsp?authStatus=0");
+				response.sendRedirect("/blog/index.jsp?authStatus=0");
 			}
 		}
 	}

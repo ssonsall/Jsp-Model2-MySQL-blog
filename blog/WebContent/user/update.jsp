@@ -297,7 +297,7 @@
 	}
 
 	function usernameDuplicationCheck() {
-		var url = "http://localhost:8000/blog/api/user";
+		var url = "/blog/api/user";
 		var username = document.querySelector('#username').value;
 		var dupResult = document.querySelector('#duplicationCheckResult');
 		fetch(

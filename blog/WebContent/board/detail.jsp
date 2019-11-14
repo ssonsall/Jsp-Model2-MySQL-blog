@@ -33,7 +33,7 @@
 									<p>${view.createDate}</p>
 								</div>
 								<div class="d-flex">
-									<img src="http://localhost:8000/blog/userprofile/${view.userProfile}" width="75px" height="75px">
+									<img src="/blog/userprofile/${view.userProfile}" width="75px" height="75px">
 								</div>
 							</div>
 						</div>
@@ -68,7 +68,7 @@
 							<div class="single-comment justify-content-between d-flex">
 								<div class="user justify-content-between d-flex">
 									<div class="thumb">
-										<img src="http://localhost:8000/blog/userprofile/${comment.user.userProfile}" width="60px" height="60px">
+										<img src="/blog/userprofile/${comment.user.userProfile}" width="60px" height="60px">
 									</div>
 									<div class="desc">
 										<h5>
@@ -121,7 +121,7 @@
       var comment_list = "<div class='comment-list' style='padding-bottom: 10px' id='comment-id-" + id + "'> ";
       comment_list += "<div class='single-comment justify-content-between d-flex'> ";
       comment_list += "<div class='user justify-content-between d-flex'> ";
-      comment_list += "<div class='thumb'><img src='http://localhost:8000/blog/userprofile/" + userProfile + "' alt='' width='60px' height='60px'></div>";
+      comment_list += "<div class='thumb'><img src='/blog/userprofile/" + userProfile + "' alt='' width='60px' height='60px'></div>";
       comment_list += "<div class='desc'><h5><a href='#'>" + username + "</a></h5> ";
       comment_list += "<p class='date'>" + createDate + "</p><p class='comment' style='word-break: break-all;'>" + content + "</p></div></div> ";
       comment_list += "<div class='reply-btn'>";
@@ -135,7 +135,7 @@
       var replyItem = "<div class='comment-list left-padding' style='padding-bottom : 10px' id='reply-id-" + id + "'>";
       replyItem += "<div class='single-comment justify-content-between d-flex'>";
       replyItem += "<div class='user justify-content-between d-flex'>";
-      replyItem += "<div class='thumb'><img src='http://localhost:8000/blog/userprofile/" + userProfile + "' alt='' width='60px' height='60px'></div>";
+      replyItem += "<div class='thumb'><img src='/blog/userprofile/" + userProfile + "' alt='' width='60px' height='60px'></div>";
       replyItem += "<div class='desc'><h5><a href='#'>" + username + "</a></h5>";
       replyItem += "<p class='date'>" + createDate + "</p>";
       replyItem += "<p class='comment'>" + content + "</p>";
@@ -158,7 +158,7 @@
 
          $.ajax({
             method: 'POST',
-            url: 'http://localhost:8000/blog/api/reply?cmd=list',
+            url: '/blog/api/reply?cmd=list',
             contentType: 'text/plain; charset=utf-8',
             data: comment_id + "",
             dataType: 'json',
@@ -188,7 +188,7 @@
       console.log(reply_submit_string);
       $.ajax({
          method: 'POST',
-         url: 'http://localhost:8000/blog/api/reply?cmd=write',
+         url: '/blog/api/reply?cmd=write',
          contentType: 'application/x-www-form-urlencoded; charset=utf-8',
          data: reply_submit_string,
          //dataType: 'json',
@@ -209,7 +209,7 @@
    function replyDelete(reply_id) {
       $.ajax({
          method: 'POST',
-         url: 'http://localhost:8000/blog/api/reply?cmd=delete',
+         url: '/blog/api/reply?cmd=delete',
          contentType: 'text/plain; charset=utf-8',
          data: reply_id + "",
          success: function (response) {
@@ -238,7 +238,7 @@
       console.log(comment_submit_string);
       $.ajax({
          method: 'POST',
-         url: 'http://localhost:8000/blog/api/comment?cmd=write',
+         url: '/blog/api/comment?cmd=write',
          contentType: 'application/x-www-form-urlencoded; charset=utf-8',
          data: comment_submit_string,
          dataType: 'json',
@@ -262,7 +262,7 @@
    function commentDelete(comment_id) {
       $.ajax({
          method: 'POST',
-         url: 'http://localhost:8000/blog/api/comment?cmd=delete',
+         url: '/blog/api/comment?cmd=delete',
          contentType: 'text/plain; charset=utf-8',
          data: comment_id + "",
          success: function (response) {

@@ -28,7 +28,7 @@
 	sb.append("<h2>안녕하세요! "+username+" 님!</h2><br/>");
 	sb.append("<h2>아래의 이메일 인증을 눌러서 진행해주세요.</h2><br/>");
 	//주소에 이메일 안남기기 위해서 서버 한번 더 타는걸로
-	sb.append("<a href='http://localhost:8000/blog/auth?code=" + code + "&id=" + id + "'>");
+	sb.append("<a href='ec2-52-79-240-144.ap-northeast-2.compute.amazonaws.com:8000/blog/auth?code=" + code + "&id=" + id + "'>");
 	sb.append("<h2>이메일 인증하기</h2></a>");
 
 	String content = sb.toString();
