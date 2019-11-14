@@ -33,8 +33,7 @@ public class UserUpdateAction implements Action {
 		// 그래서 MultipartRequest라는 객체로 받아냄. 이걸 쓰려면 cos.jar 이라는 라이브러리를 추가해야함.
 		// new MultipartRequest(request,"파일저장경로",맥시멈 파일사이즈(1024 = 1kb, 1024*10000 =
 		// 10MB, 인코딩타입, 같은 파일명이 있으면 자동으로 파일명을 변경해서 저장함)
-		MultipartRequest mr = new MultipartRequest(request, userProfilePath, 1024 * 10000, "utf-8",
-				new DefaultFileRenamePolicy());
+		MultipartRequest mr = new MultipartRequest(request, userProfilePath, 1024 * 10000, "utf-8");
 
 		// null 값 처리해야함, 유효성(Validation 검사)
 		// enctype="multipart/form-data"로 폼데이터를 넘기면 우리가 하던방식대로 request.getParameter로 값을
@@ -80,7 +79,7 @@ public class UserUpdateAction implements Action {
 			userProfile = fileNew.getName();
 			file.delete();
 		} else {
-			userProfile = username + ".jpg";
+			userProfile = "userprofile\\"+username + ".jpg";
 		}
 
 		String password = SHA256.getEncrypt(rawPassword, "cos");

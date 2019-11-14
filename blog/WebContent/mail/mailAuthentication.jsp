@@ -38,7 +38,7 @@
 <!-- comment script -->
 <script>
 	function moveToListPage() {
-		location.href = "http://localhost:8000/blog/index.jsp";
+		location.href = "/blog/index.jsp";
 	}
 </script>
 </body>

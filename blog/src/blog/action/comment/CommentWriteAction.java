@@ -12,23 +12,22 @@ import com.google.gson.Gson;
 import blog.action.Action;
 import blog.dao.CommentDao;
 import blog.model.Comment;
-import blog.service.CommentService;
 import blog.util.Script;
 
 public class CommentWriteAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//null처리 필요
+		//null泥섎━ �븘�슂
 		int userId = Integer.parseInt(request.getParameter("userId"));
 		int boardId = Integer.parseInt(request.getParameter("boardId"));
 		String content = request.getParameter("content");
 		CommentDao commentDao = new CommentDao();
 		Comment comment = new Comment();
 		
-		//맥스아이디로 찾을때 동시접근해서 문제발생할 경우 대비하려면
-		//service 만들어서 하나로 묶음 synchronized 써서
-		//아래와 같은 방식으로. service는 만들어뒀으니 보면 이해할수 있음
+		//留μ뒪�븘�씠�뵒濡� 李얠쓣�븣 �룞�떆�젒洹쇳빐�꽌 臾몄젣諛쒖깮�븷 寃쎌슦 ��鍮꾪븯�젮硫�
+		//service 留뚮뱾�뼱�꽌 �븯�굹濡� 臾띠쓬 synchronized �뜥�꽌
+		//�븘�옒�� 媛숈� 諛⑹떇�쑝濡�. service�뒗 留뚮뱾�뼱���쑝�땲 蹂대㈃ �씠�빐�븷�닔 �엳�쓬
 		//CommentService service = new CommentService();
 		//Comment comment = service.write();
 		
@@ -48,7 +47,7 @@ public class CommentWriteAction implements Action {
 			response.setContentType("application/json");
 			Gson gson = new Gson();
 			String commentJson = gson.toJson(responseComment);
-			System.out.println("날리기 직전 >> " + commentJson);
+			System.out.println("�궇由ш린 吏곸쟾 >> " + commentJson);
 			out.print(commentJson);
 			out.flush();
 		}else {

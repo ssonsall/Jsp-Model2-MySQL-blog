@@ -300,7 +300,6 @@
 			return false;
 		}
 
-
 	}
 
 	function usernameDuplicationCheck() {

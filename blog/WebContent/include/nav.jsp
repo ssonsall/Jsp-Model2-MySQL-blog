@@ -62,7 +62,7 @@
 								<c:when test="${empty sessionScope.user}">
 								</c:when>
 								<c:otherwise>
-									<li class="nav-item"><a href="/blog/user/update.jsp"><img src="/blog/userprofile/${sessionScope.user.userProfile}" width="55px" height="55px" /></a></li>
+									<li class="nav-item"><a href="/blog/user/update.jsp"><img src="/blog/${sessionScope.user.userProfile}" width="55px" height="55px" /></a></li>
 									<li class="nav-item" style="margin-top: 5px"><a href="/blog/user/update.jsp">Hello! ${sessionScope.user.username}!</a></li>
 									<c:if test="${sessionScope.user.emailCheck ne 1}">
 										<li class="nav-item" style="margin-top: 3px;"><a class="blog_btn" href="/blog/user?cmd=fromNavToEmailAuth" style="color:red;">email 인증하기</a></li>

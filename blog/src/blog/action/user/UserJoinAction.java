@@ -41,7 +41,7 @@ public class UserJoinAction implements Action {
 		// 10MB, 인코딩타입, 같은 파일명이 있으면 자동으로 파일명을 변경해서 저장함)
 		MultipartRequest mr = new MultipartRequest(request, userProfilePath, 1024 * 10000, "utf-8",
 				new DefaultFileRenamePolicy());
-
+		System.out.println("origin >> " + mr.getOriginalFileName(userProfilePath));
 		// null 값 처리해야함, 유효성(Validation 검사)
 		// enctype="multipart/form-data"로 폼데이터를 넘기면 우리가 하던방식대로 request.getParameter로 값을
 		// 땡겨올수 없다고 했음.
@@ -82,9 +82,10 @@ public class UserJoinAction implements Action {
 		// nav.jsp에서 img src에 서버에 저장된 파일 경로를 그대로 적어줄것이기에 DB에는 파일이름만 저장함
 
 		userProfile = fileNew.getName();
+		System.out.println("fileNew name >>> "+fileNew.getName());
 		file.delete();
 		 }else {
-		userProfile = "defaultprofile.jpg";
+		userProfile = "userprofile\\defaultprofile.jpg";
 		 }
 
 		String password = SHA256.getEncrypt(rawPassword, "cos");
