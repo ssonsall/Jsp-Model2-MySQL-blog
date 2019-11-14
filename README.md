@@ -18,7 +18,7 @@ CREATE TABLE user(
     password varchar(100) not null,
     email varchar(100) not null,
     address varchar(100) not null,
-    userProfile varchar(20000) default '/blog/img/userProfile.png',
+    userProfile varchar(20000) default 'defaultprofile.jpg',
     createDate timestamp
 ) engine=InnoDB default charset=utf8;
 ```
@@ -42,7 +42,7 @@ CREATE TABLE comment(
     boardId int,
     content varchar(300) not null,
     createDate timestamp,
-    foreign key (userId) references user (id) on delete set null,
+    foreign key (userId) references user (id) on delete cascade,
     foreign key (boardId) references board (id) on delete cascade
 ) engine=InnoDB default charset=utf8;
 ```
@@ -55,7 +55,7 @@ CREATE TABLE reply(
     content varchar(300) not null,
     createDate timestamp,
     foreign key (commentId) references comment (id) on delete cascade,
-    foreign key (userId) references user (id) on delete set null
+    foreign key (userId) references user (id) on delete cascade
 ) engine=InnoDB default charset=utf8;
 ```
 
