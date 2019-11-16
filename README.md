@@ -41,7 +41,7 @@ CREATE TABLE user(
     address varchar(100) not null,
     userProfile varchar(20000) default 'defaultprofile.jpg',
     createDate timestamp,
-    emailCheck int default 0
+    emailCheck int default 0,
 ) engine=InnoDB default charset=utf8;
 ```
 
@@ -53,7 +53,7 @@ CREATE TABLE board(
     content longtext,
     readCount int default 0,
     createDate timestamp,
-    searchContent longtext
+    searchContent longtext,
     foreign key (userId) references user (id)
 ) engine=InnoDB default charset=utf8;
 ```
