@@ -53,6 +53,7 @@ CREATE TABLE board(
     content longtext,
     readCount int default 0,
     createDate timestamp,
+    searchContent longtext
     foreign key (userId) references user (id)
 ) engine=InnoDB default charset=utf8;
 ```
