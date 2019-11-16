@@ -2,7 +2,6 @@
 
 - git주소 : <https://github.com/ssonsall/Jsp-Model2-MySQL-blog>
 
-![blog](https://postfiles.pstatic.net/MjAxOTExMTJfNzYg/MDAxNTczNTM5NTA0NTUw.uoTg1BMfppFO5RnESgJliaDKr6lDNFZ9dkEXYcBXZDEg.8wCK4u8NLuajvx_5UG18szRcuzlexIAQppZsWb1m9Vog.PNG.getinthere/Screenshot_23.png?type=w773)
 
 #### 1. 사용자 생성 및 권한 주기 및 DB 생성
 - create user 'cos'@'localhost' identified by 'Bitc5600!';
