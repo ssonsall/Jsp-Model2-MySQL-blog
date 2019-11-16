@@ -3,7 +3,7 @@
 - UserJoinAction,java
 - UserUpdateAction.java
 - 경로 잡는 코드 수정 필요
-
+- 현재 Github에 올라와있는 코드 : 
 - git주소 : <https://github.com/ssonsall/Jsp-Model2-MySQL-blog>
 
 
