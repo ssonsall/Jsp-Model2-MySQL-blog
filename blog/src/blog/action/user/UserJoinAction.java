@@ -32,7 +32,7 @@ public class UserJoinAction implements Action {
 		// 이동)
 		ServletContext context = request.getServletContext();
 		String userProfilePath = context.getRealPath("userprofile");
-
+		System.out.println("RealPath >> >>"+userProfilePath);
 
 		// html에서 enctype="multipart/form-data"로 form데이터를 넘기게 되면 request.getParameter로
 		// 값을 가져올수 없음. 출력해보면 null이 나옴.
@@ -68,11 +68,11 @@ public class UserJoinAction implements Action {
 		
 
 
-		File file = new File(userProfilePath + "\\" + fileSystemName);
+		File file = new File(userProfilePath + "/" + fileSystemName);
 		String fileNameTemp[] = fileSystemName.split("\\.");
 
 		// 파일 이름 유저아이디로 변경하여 저장할 것임.
-		File fileNew = new File(userProfilePath + "\\" + username + "." + fileNameTemp[1]);
+		File fileNew = new File(userProfilePath + "/" + username + "." + fileNameTemp[1]);
 
 		// 업로드된 파일 이름 변경
 		if (file.exists()) {
@@ -85,7 +85,7 @@ public class UserJoinAction implements Action {
 		System.out.println("fileNew name >>> "+fileNew.getName());
 		file.delete();
 		 }else {
-		userProfile = "userprofile\\defaultprofile.jpg";
+		userProfile = "defaultprofile.jpg";
 		 }
 
 		String password = SHA256.getEncrypt(rawPassword, "cos");

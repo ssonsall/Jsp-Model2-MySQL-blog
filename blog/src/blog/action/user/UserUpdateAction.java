@@ -57,11 +57,11 @@ public class UserUpdateAction implements Action {
 		// 동일 파일명이 없으면 문제없지만 동일 파일명이 존재하면 자동으로 리네임하도록 해두었기때문에 실제 저장된 파일이름을 구해서 DB에 저장해야함
 		String fileSystemName = mr.getFilesystemName(fileName);
 		if (fileSystemName != null) {
-			File file = new File(userProfilePath + "\\" + fileSystemName);
+			File file = new File(userProfilePath + "/" + fileSystemName);
 			String fileNameTemp[] = fileSystemName.split("\\.");
 
 			// 파일 이름 유저아이디로
-			File fileNew = new File(userProfilePath + "\\" + username + "." + fileNameTemp[1]);
+			File fileNew = new File(userProfilePath + "/" + username + "." + fileNameTemp[1]);
 
 			// 기존에 등록되었던 username.jpg(png) 파일을 날려버림
 			if (fileNew.exists()) {
@@ -79,7 +79,7 @@ public class UserUpdateAction implements Action {
 			userProfile = fileNew.getName();
 			file.delete();
 		} else {
-			userProfile = "userprofile\\"+username + ".jpg";
+			userProfile = username + ".jpg";
 		}
 
 		String password = SHA256.getEncrypt(rawPassword, "cos");
