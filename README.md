@@ -10,7 +10,8 @@
 - create database cos;
 - use cos;
 
-- mysql 한글세팅
+- mysql 한글세팅;
+
 [client]
 default-character-set=utf8
 
