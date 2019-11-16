@@ -54,7 +54,7 @@ CREATE TABLE board(
     readCount int default 0,
     createDate timestamp,
     searchContent longtext,
-    foreign key (userId) references user (id)
+    foreign key (userId) references user (id) on delete cascade
 ) engine=InnoDB default charset=utf8;
 ```
 
