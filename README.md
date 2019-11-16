@@ -2,13 +2,33 @@
 
 - git주소 : <https://github.com/ssonsall/Jsp-Model2-MySQL-blog>
 
-![blog](https://postfiles.pstatic.net/MjAxOTExMTJfNzYg/MDAxNTczNTM5NTA0NTUw.uoTg1BMfppFO5RnESgJliaDKr6lDNFZ9dkEXYcBXZDEg.8wCK4u8NLuajvx_5UG18szRcuzlexIAQppZsWb1m9Vog.PNG.getinthere/Screenshot_23.png?type=w773)
 
 #### 1. 사용자 생성 및 권한 주기 및 DB 생성
 - create user 'cos'@'localhost' identified by 'Bitc5600!';
 - GRANT ALL PRIVILEGES ON *.* TO cos@localhost;
 - create database cos;
 - use cos;
+
+- mysql 한글세팅;
+
+[client]
+default-character-set=utf8
+
+[mysql]
+default-character-set=utf8
+
+[mysqld]
+collation-server = utf8_unicode_ci
+init-connect='SET NAMES utf8'
+init_connect='SET collation_connection = utf8_general_ci'
+character-set-server=utf8
+
+- 한글세팅 확인
+$ sudo mysql -u root -p
+
+비번 그냥 엔터
+
+mysql> show variables like 'c%';
 
 #### 2. 테이블
 ```sql
@@ -19,7 +39,8 @@ CREATE TABLE user(
     email varchar(100) not null,
     address varchar(100) not null,
     userProfile varchar(20000) default 'defaultprofile.jpg',
-    createDate timestamp
+    createDate timestamp,
+    emailCheck int default 0
 ) engine=InnoDB default charset=utf8;
 ```
 
@@ -31,7 +52,8 @@ CREATE TABLE board(
     content longtext,
     readCount int default 0,
     createDate timestamp,
-    foreign key (userId) references user (id)
+    searchContent longtext,
+    foreign key (userId) references user (id) on delete cascade
 ) engine=InnoDB default charset=utf8;
 ```
 
