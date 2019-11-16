@@ -10,6 +10,26 @@
 - create database cos;
 - use cos;
 
+- mysql 한글세팅
+[client]
+default-character-set=utf8
+
+[mysql]
+default-character-set=utf8
+
+[mysqld]
+collation-server = utf8_unicode_ci
+init-connect='SET NAMES utf8'
+init_connect='SET collation_connection = utf8_general_ci'
+character-set-server=utf8
+
+- 한글세팅 확인
+$ sudo mysql -u root -p
+
+비번 그냥 엔터
+
+mysql> show variables like 'c%';
+[출처] 스프링 레거시 MyBatis로 Blog만들기 ~ AWS배포까지 05 AWS 서버 세팅 및 배포 완료|작성자 개발자
 #### 2. 테이블
 ```sql
 CREATE TABLE user(
