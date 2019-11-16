@@ -1,4 +1,8 @@
 ##### 나만의 블로그 만들기 Jsp-Model2-MySQL-blog
+##### 서버 환경이 Window냐 Ubuntu냐에 따라
+- UserJoinAction,java
+- UserUpdateAction.java
+- 경로 잡는 코드 수정 필요
 
 - git주소 : <https://github.com/ssonsall/Jsp-Model2-MySQL-blog>
 
